@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+**/DerivedData/
+**/build/
+**/Build/
+*.xcuserstate
+**/xcuserdata/
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM
+*.dSYM.zip
+*.app/
+*.xcarchive/
+
+# Local signing and Firebase configuration
+*.mobileprovision
+*.provisionprofile
+GoogleService-Info.plist
+
+# Editor and tooling
+.idea/
+.vscode/
+.swiftpm/xcode/package.xcworkspace/
+
+# Build and analysis results
+**/.build/
+*.xcresult
+*.profdata

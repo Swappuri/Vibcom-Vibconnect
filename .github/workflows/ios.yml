@@ -1,0 +1,40 @@
+name: iOS
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  swift-format:
+    name: Swift formatting
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Swift formatting
+        run: scripts/lint-swift.sh
+
+  build:
+    name: Build ${{ matrix.scheme }}
+    runs-on: macos-15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - project: Apps/Vibcom/Vibcom.xcodeproj
+            scheme: Vibcom
+          - project: Apps/Vibconnect/Vibconnect.xcodeproj
+            scheme: Vibconnect
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show Xcode version
+        run: xcodebuild -version
+      - name: Build for iOS Simulator
+        run: >-
+          xcodebuild
+          -project "${{ matrix.project }}"
+          -scheme "${{ matrix.scheme }}"
+          -configuration Debug
+          -destination 'generic/platform=iOS Simulator'
+          CODE_SIGNING_ALLOWED=NO
+          build

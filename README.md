@@ -1,10 +1,12 @@
 # Vibcom & Vibconnect
 
-**Accessible communication, with Braille-inspired messaging and nearby connection.**
+**Accessible messaging and nearby connection, with vibration-simulated Braille interaction.**
 
-Vibcom and Vibconnect are two companion iOS apps designed to work together. Vibcom is the communication app: people can find contacts who already use the service, message them, and compose messages with a Braille-inspired input experience supported by haptic, audio, and visual feedback. Vibconnect extends that experience to in-person discovery, helping people discover nearby profiles and exchange contact details with an accepted peer.
+Vibcom and Vibconnect are companion iOS apps exploring more accessible ways for blind and low-vision people to communicate and meet. Vibcom is the messaging app. Its vibration-simulated Braille feature maps text to the six-dot pattern of a Braille cell and represents each character with timed feedback: active dots use stronger vibrations and tones, while weaker tones mark the other dot positions. Vibcom also offers gesture-based Braille entry, drawn-letter input, and the standard keyboard, with spoken, tone, vibration, and visual feedback. Vibconnect complements messaging with accessible nearby discovery and contact exchange.
 
-The apps are separate Xcode projects, but share an account identity. Sign in with Vibcom, then Vibconnect can use that identity for nearby discovery and contact exchange. Together, they explore how accessible interaction and in-person connection can complement everyday messaging.
+The two apps are built separately but share an account identity. Sign in with Vibcom, then use Vibconnect to discover nearby people and connect in person. The project explores accessibility as a complete communication workflow: composing and reading messages, finding people, and carrying a new connection into messaging.
+
+Vibration-simulated Braille is an experimental phone-based representation of Braille patterns, not a physical Braille display or a replacement for one. The project report discusses the interaction design, implementation, and evaluation in more depth.
 
 ## The two apps
 
@@ -13,8 +15,9 @@ The apps are separate Xcode projects, but share an account identity. Sign in wit
 - Phone-number sign-in and profile setup
 - Contact matching to find existing Vibcom users
 - One-to-one conversations backed by Cloud Firestore
-- Braille-inspired message composition, with configurable feedback
-- Haptic, spoken, and visual feedback to support message entry and reading
+- Gesture-based Braille message entry, drawn-letter input, and standard keyboard input
+- Vibration-simulated Braille output: timed phone vibrations and tones encode the six-dot cell pattern of text
+- Spoken, tone, vibration, and visual feedback for message reading and interaction
 - Profile, presence, and accessibility preferences
 
 ### Vibconnect
@@ -41,7 +44,11 @@ The apps are built and signed independently. Firebase stores account, profile, p
 
 ## Visuals
 
-The repository currently includes app branding and icons, but no representative in-app screenshots. The [project presentation](docs/project-presentation.pdf) and [project report](docs/project-report.pdf) provide the available visual walkthrough and deeper design context.
+Representative screens are shown below. These images are taken from the project report's UI appendix.
+
+| Vibcom conversation | Vibconnect nearby discovery |
+| --- | --- |
+| ![Vibcom conversation screen, showing a message and the gesture-based composition area](docs/images/vibcom-conversation.jpg) | ![Vibconnect nearby discovery screen, showing a single profile card and accessibility gesture shortcuts](docs/images/vibconnect-discovery.jpg) |
 
 ## Built with
 
@@ -89,7 +96,7 @@ Run `scripts/lint-swift.sh` to check formatting or `scripts/format-swift.sh` to 
 
 ## Project documents
 
-The source and this README are intended to give a quick overview. For a fuller account of the design and project, see the [project report](docs/project-report.pdf) and [project presentation](docs/project-presentation.pdf).
+The source and this README provide a quick overview. For the full design rationale, workflows, evaluation, limitations, and additional interface screens, see the [project report](docs/project-report.pdf) and [project presentation](docs/project-presentation.pdf).
 
 - [Architecture](docs/ARCHITECTURE.md)
 - [Firebase setup](docs/FIREBASE.md)
